@@ -1,23 +1,25 @@
-# Deaf Sinatra 1 Synchronous Forms 
- 
-##Learning Competencies 
+# Deaf Sinatra 1 Synchronous Forms
 
-##Summary 
+## Learning Competencies
 
- We're going to build our first and very simple web application using [Sinatra](http://www.sinatrarb.com/), a lightweight framework for building web applications in Ruby.
+* can use URL parameters to pass data into a server application
+* can use form controls to pass data into a server application
+* can use ruby flow control to change server response
+* can use redirect
+* can navigate and modify multi-file, multi-directory code base
+* can map the flow of data through a web application
+
+## Summary
+
+We're going to build our first and very simple web application using
+[Sinatra][], a lightweight framework for building web
+applications in Ruby.
 
 This challenge is basically a web version of Deaf Grandma.
 
-## Learning Goals
+## Releases
 
-The main goal of this is to get a feeling for the core interactions in a web application:
-
-- How do HTML forms work?
-- How do the browser and the web server pass information back and forth?
-
-## Objectives
-
-### Download the Skeleton Code
+### Release 0: Download the Skeleton Code
 
 Start by downloading [the skeleton code](http://cl.ly/0Z3z432M1T2s).
 
@@ -41,7 +43,7 @@ It should look like this:
 
 If it looks different call a staff member over!
 
-### Make Grandma Talk
+### Release 1: Make Grandma Talk
 
 First, visit [http://localhost:9393/?grandma=hey!](http://localhost:9393/?grandma=hey!).  Notice how the value of the URL parameter `grandma` is rendered on the page.  Try to find where in the code this logic exists.  How do we extract information from the URL parameters?
 
@@ -49,17 +51,23 @@ The string after a URL that looks like `?param1=value1&param2=value2` is called 
 
 Load up the web app, type something into the talk-to-Grandma box, and click "Say it!"  What happens and why?
 
+### Release 2:  Make Grandma Logical
+
 Finally, change `app/controllers/index.rb` so that Grandma response appropriately.  If you typed in something in ALL CAPS make her respond humorously.  If you typed in something else make her response with "Speak up, kiddo!"
 
-Read the [Sinatra documentation](http://www.sinatrarb.com/intro) on [browser redirect](http://www.sinatrarb.com/intro#Browser%20Redirect) and the [handlers section](http://sinatra-book.gittr.com/#handlers) of the [Sinatra Book](http://sinatra-book.gittr.com/).  You'll want to redirect back to `http://localhost:9292/?grandma=foobar` after the user submits their form.
+Read the [Sinatra documentation][] on [browser redirect][] and the [handlers section][] of the [Sinatra Book][].  You'll want to redirect back to `http://localhost:9292/?grandma=foobar` after the user submits their form.
 
 ### Submit your code!
 
-Only your `index.rb` file should have changed.  Upload that to a gist and and submit it! 
+Only your `index.rb` file should have changed.  Create a pull request back
 
-##Releases
-###Release 0 
+## Resources
 
-##Optimize Your Learning 
+* [Sinatra Online Documentation][Sinatra] (_less-comprehensive but direct_)
+* [Sinatra Book][Sinatra Book] (_more comprehensive, but less direct_)
 
-##Resources
+[Sinatra documentation]: http://www.sinatrarb.com/intro
+[browser redirect]: http://www.sinatrarb.com/intro#Browser%20Redirect
+[handlers section]: http://sinatra-book.gittr.com/#handlers
+[Sinatra Book]: http://sinatra-book.gittr.com/
+[Sinatra]: http://www.sinatrarb.com/
