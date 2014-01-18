@@ -8,6 +8,7 @@
 * use redirect
 * navigate and modify multi-file, multi-directory code base
 * map the flow of data through a web application
+* use redirect to append output to an existing page
 
 ## Summary
 
