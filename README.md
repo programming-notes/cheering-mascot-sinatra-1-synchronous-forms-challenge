@@ -2,13 +2,12 @@
 
 ## Learning Competencies
 
-* use URL parameters to pass data into a server application
-* use form controls to pass data into a server application
-* use ruby flow control to change server response
-* use redirect
-* navigate and modify multi-file, multi-directory code base
-* map the flow of data through a web application
-* use redirect to append output to an existing page
+* Read a foreign code base and be able to contribute code review and changes
+* Map the flow of data through a web application
+* Use URL parameters to pass data into a server application
+* Use form controls to pass data into a server application
+* Use ruby flow control to change server response
+* Use redirect and render and know when to use each
 
 ## Summary
 
