@@ -4,6 +4,10 @@
     <p>Grandma says: "<span id="grandma_says"><%= @grandma %></span>"</p>
   <% end %>
 
+  <!-- this form sends data (the <input> elements) to the
+       URL '/grandma' using the HTTP verb 'post', which
+       matches the 'post /grandma' route defined in
+       app/controller/index.rb -->
   <form action="/grandma" method="post">
     Say something to Grandma:
     <br>
