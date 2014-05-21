@@ -37,7 +37,7 @@ You should now be able to visit your web app at [http://localhost:9393](http://l
 
 It should look like this:
 
-<p style="text-align: center"><img src="http://f.cl.ly/items/0b1O350M1Z1P2i353B3I/Screen%20Shot%202013-02-17%20at%202.58.54%20PM.png"></p>
+<p style="text-align: center"><img src="screenshot.png"></p>
 
 If it looks different call a staff member over!
 
