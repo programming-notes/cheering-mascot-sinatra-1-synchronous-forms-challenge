@@ -19,11 +19,9 @@ This challenge is basically a web version of Deaf Grandma.
 
 ## Releases
 
-### Release 0: Download the Skeleton Code
+### Release 0: Running the App
 
-Start by downloading [the skeleton code](http://cl.ly/0Z3z432M1T2s).
-
-Uncompress the zip file and explore the directory structure.  Controllers are in `app/controller` and views are in `app/views`.
+This repo includes the Sinatra skeleton you'll use for this challenge. Explore the directory structure.  Controllers are in `app/controller` and views are in `app/views`.
 
 Run `bundle` to install the necessary gems.  Note that this application uses Postgres for its database, not SQLite.  If there's a database-related error at any point grab a staff member to make sure the machine is configured correctly and Postgres is running.
 
