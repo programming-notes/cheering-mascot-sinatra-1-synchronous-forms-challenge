@@ -74,6 +74,6 @@ Read the [Sinatra documentation][] on [browser redirect][] and the [handlers sec
 
 [Sinatra documentation]: http://www.sinatrarb.com/intro
 [browser redirect]: http://www.sinatrarb.com/intro#Browser%20Redirect
-[handlers section]: http://sinatra-book.gittr.com/#handlers
-[Sinatra Book]: http://sinatra-book.gittr.com/
+[handlers section]: http://sinatra-book.zencephalon.com/#handlers
+[Sinatra Book]: http://sinatra-book.zencephalon.com/
 [Sinatra]: http://www.sinatrarb.com/
