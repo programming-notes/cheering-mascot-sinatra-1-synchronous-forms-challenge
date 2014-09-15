@@ -57,7 +57,7 @@ Load up the web app, type something into the talk-to-Grandma box, and click "Say
 
 ### Release 2:  Make Grandma Logical
 
-Finally, change `app/controllers/index.rb` so that after you send a message to Grandma via the form her reponse is displayed via the `app/views/index.erb` template. You'll need to redirect the client as part of the `post /grandma` route.
+Finally, change `app/controllers/index.rb` so that after you send a message to Grandma via the form her reponse is displayed via the `app/views/index.erb` template. Take inspiration from the `get '/'` route.
 
 If you typed in something in ALL CAPS make her respond humorously.  If you typed in something else make her response with "Speak up, kiddo!"
 
