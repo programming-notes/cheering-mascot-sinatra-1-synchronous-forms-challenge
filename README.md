@@ -36,8 +36,7 @@ Particularly noteworthy is the `app` directory.  Most of the files we'll be work
 
 ## Releases
 ### Pre-release: Running the App Locally
-This repo includes the Sinatra skeleton you'll use for this challenge. Explore the directory structure.  Controllers are in `app/controller` and views are in `app/views`.
-Run `bundle` to install the necessary gems.  Note that this application uses Postgres for its database, not SQLite.  If there's a database-related error at any point grab a staff member to make sure the machine is configured correctly and Postgres is running.
+To begin, let's make sure that all required gems have been installed; run `bundle` to install any missing gems.  
 
 To launch the web application this command from the application root directory:
 
