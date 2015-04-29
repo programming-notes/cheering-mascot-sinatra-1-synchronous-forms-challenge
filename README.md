@@ -33,6 +33,9 @@ Particularly noteworthy is the `app` directory.  Most of the files we'll be work
 
 - `app/views` contains the files where we define templates that we'll convert to HTML and send back as responses to HTTP requests.
 
+### PostgreSQL Database
+We won't be creating a database for this challenge.  However, it's worth noting that the Sinatra skeleton uses [Postgres](http://www.postgresql.org/) for its database, not SQLite.  If for some reason there's a database-related error, grab an instructor to make sure the machine is configured correctly and Postgres is running.
+
 
 ## Releases
 ### Pre-release: Running the App Locally
