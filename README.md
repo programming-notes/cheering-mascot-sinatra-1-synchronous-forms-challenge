@@ -38,26 +38,29 @@ We won't be creating a database for this challenge.  However, it's worth noting 
 
 
 ## Releases
-### Pre-release: Running the App Locally
-To begin, let's make sure that all required gems have been installed; run `bundle` to install any missing gems.  
+### Pre-release: Starting the Server with Shotgun
+In order to use our application, we need to run a server to handle the HTTP requests we'll be generating in the browser.  Take a look at the `Gemfile`.  Notice two of the entries:  [`thin`](https://github.com/macournoyer/thin/) and [`shotgun`](https://github.com/rtomayko/shotgun).  We're not expected to know how these work. Suffice it to say we'll be running a thin server, and we'll start it with shotgun.
 
-To launch the web application this command from the application root directory:
+Before we try starting the server, let's make sure that all required gems have been installed. Run `bundle` to install any missing gems.  
+
+To start the server, run the following command from the application's root directory:
 
 ```text
-$ shotgun config.ru
+$ bundle exec shotgun config.ru
 ```
 
-Sinatra, like Rails, is a [Rack-based](http://rack.github.com/) framework, which means the main point of entry is this `config.ru` file.  The `ru` stands for "rackup."
+The `config.ru` file loads our environment and runs our application. The `.ru` stands for "rackup". Sinatra, like Rails, is a [Rack-based](http://rack.github.com/) framework, which means the main point of entry is this `config.ru` file. Going forward, we can leave off the `config.ru` and just run `bundle exec shotgun`.  By default, `shotgun` looks for a `config.ru` file.
 
-Tip: No need to include the argument `config.ru` to `shotgun`. By default `shotgun` looks for a `config.ru` file.
+```text
+== Shotgun/Thin on http://127.0.0.1:9393/
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on 127.0.0.1:9393, CTRL+C to stop
+```
+*Figure 1*. Console output after starting the server.
 
-You should now be able to visit your web app at [http://localhost:9393](http://localhost:9393).  `localhost` always refers to "the current machine," so you actually have a tiny web server running on your own computer!
+When the server starts we should see output similar to that in Figure 1.  The first and last lines contain the most relevant information.  The first line gives us the host and port where we can access our application:  `http://127.0.0.1:9393/`.  The last line informs us how to shut down our server:  `CTRL + C`.
 
-It should look like this:
-
-<p style="text-align: center"><img src="screenshot.png"></p>
-
-If it looks different call a staff member over!
 
 ### Release 1: Make Grandma Talk
 
