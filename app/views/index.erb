@@ -1,17 +1,24 @@
 <div class="container">
-  <h1>Cheering Mascot</h1>
-  <% if @sign_text %>
-    <p>Sign says: "<span id="sign_text"><%= @sign_text %></span>"</p>
-  <% end %>
 
-  <!-- this form sends data (the <input> elements) to the
-       URL '/grandma' using the HTTP verb 'post', which
-       matches the 'post /grandma' route defined in
-       app/controller/index.rb -->
-  <form action="/cheers" method="post">
-    Call out a cheer:
-    <br>
-    <input type="text" name="cheer">
-    <input type="submit" value="Call it out!">
-  </form>
+  <section class="sidebar">
+    <h1>Call a Cheer</h1>
+
+    <form action="/cheers" method="post">
+      <label for="cheer">Cheer name:</label>
+      <input type="text" name="cheer">
+      <input type="submit" value="Call it out!">
+    </form>
+  </section>
+
+  <main class="mascot">
+    <div class="sign-text-wrap">
+      <div class="sign-text">
+
+        <% if @sign_text %>
+          <span><%= @sign_text %></span>
+        <% end %>
+
+      </div>
+    </div>
+  </main>
 </div>
