@@ -1,28 +1,30 @@
-# Deaf Sinatra 1 Synchronous Forms
-
-## Learning Competencies
-
-* Read a foreign code base and be able to contribute code review and changes
-* Map the flow of data through a web application
-* Use URL parameters to pass data into a server application
-* Use form controls to pass data into a server application
-* Use ruby flow control to change server response
-* Use redirect and render and know when to use each
+# Cheering Mascot
 
 ## Summary
 
-We're going to build our first and very simple web application using
-[Sinatra][], a lightweight framework for building web
-applications in Ruby.
+We're going to build a very simple web application using [Sinatra](http://www.sinatrarb.com/documentation.html), a lightweight framework for building web applications in Ruby.  We'll be exploring both how to pass data when making HTTP requests and also how to access data that's been passed with a request.  We'll take a look at both `GET` and `POST` requests.
 
-This challenge is basically a web version of Deaf Grandma.
+### Mascot Module
+This challenge is a web version of the Cheering Mascot Ruby command line challenge.  In case anyone is unfamiliar with that challenge or needs a refresher, here's an overview.
+
+| CHEER NAME      | SIGN TEXT      |
+| :-------------: | :------------: |
+| RED HOT         | H-O-T!         |
+| DO IT AGAIN     | Go, Fight, Win |
+| 2 BITS          | Holler!        |
+| STOMP YOUR FEET | STOMP!         |
+
+  *Table 1*.  Cheers for which the mascot has signs.
+
+We are leading some cheers, and we have a mascot helping us by holding up signs that correspond to our cheers.  The mascot only has signs for a handful of cheers.  The mascot will hold up the appropriate sign, if we shout the name of the cheer we want to hear (i.e., type with all caps).  The mascot holds up a generic "Go Team!" sign, if we call out a cheer for which the mascot has no sign or if we don't shout out the name of the cheer loud enough for the mascot to hear.
+
+A `Mascot` module has been provided (see `app/models/mascot.rb`).  The purpose of the module is to determine the sign to hold based on the name of a given cheer.
 
 ## Releases
 
 ### Release 0: Running the App
 
 This repo includes the Sinatra skeleton you'll use for this challenge. Explore the directory structure.  Controllers are in `app/controller` and views are in `app/views`.
-
 Run `bundle` to install the necessary gems.  Note that this application uses Postgres for its database, not SQLite.  If there's a database-related error at any point grab a staff member to make sure the machine is configured correctly and Postgres is running.
 
 To launch the web application this command from the application root directory:
