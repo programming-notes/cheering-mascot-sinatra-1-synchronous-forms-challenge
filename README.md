@@ -16,14 +16,26 @@ This challenge is a web version of the Cheering Mascot Ruby command line challen
 
   *Table 1*.  Cheers for which the mascot has signs.
 
-We are leading some cheers, and we have a mascot helping us by holding up signs that correspond to our cheers.  The mascot only has signs for a handful of cheers.  The mascot will hold up the appropriate sign, if we shout the name of the cheer we want to hear (i.e., type with all caps).  The mascot holds up a generic "Go Team!" sign, if we call out a cheer for which the mascot has no sign or if we don't shout out the name of the cheer loud enough for the mascot to hear.
+We are leading some cheers, and we have a mascot helping us by holding up signs that correspond to our cheers.  The mascot only has signs for a handful of cheers.  The mascot will hold up the appropriate sign, if we shout the name of the cheer we want to hear (i.e., type with all caps).  But, if we call out a cheer for which the mascot has no sign or if we don't shout out the name of the cheer loud enough for the mascot to hear, the mascot holds up a generic "Go Team!" sign.
 
 A `Mascot` module has been provided (see `app/models/mascot.rb`).  The purpose of the module is to determine the sign to hold based on the name of a given cheer.
 
+### Sinatra Skeleton
+The folder structure of this challenge has been designed to mimic the structure of a Rails application.  At DBC, the Sinatra challenges all share a similar skeleton, so it's worth taking a moment to orient ourselves to how it's organized.
+
+Particularly noteworthy is the `app` directory.  Most of the files we'll be working with will be stored in its subfolders.
+
+- `app/controllers` contains the files where we define how our application will respond to various HTTP requests.
+
+- `app/helpers` contains the files where we define methods shared by our controllers and views.  We won't be defining any in this challenge.
+
+- `app/models` contains the files where we define the classes and modules used in our application.
+
+- `app/views` contains the files where we define templates that we'll convert to HTML and send back as responses to HTTP requests.
+
+
 ## Releases
-
-### Release 0: Running the App
-
+### Pre-release: Running the App Locally
 This repo includes the Sinatra skeleton you'll use for this challenge. Explore the directory structure.  Controllers are in `app/controller` and views are in `app/views`.
 Run `bundle` to install the necessary gems.  Note that this application uses Postgres for its database, not SQLite.  If there's a database-related error at any point grab a staff member to make sure the machine is configured correctly and Postgres is running.
 
