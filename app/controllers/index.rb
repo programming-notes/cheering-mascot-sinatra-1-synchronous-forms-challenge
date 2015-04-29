@@ -1,9 +1,9 @@
 get '/' do
-  @grandma = params[:grandma]
+  @sign_text = params[:sign_text]
   # Look in app/views/index.erb
   erb :index
 end
 
-post '/grandma' do
-  "Implement the /grandma route yourself.<br>Params: <code>#{params.inspect}</code>"
+post '/cheers' do
+  "Implement the /cheers route yourself.<br>Params: <code>#{params.inspect}</code>"
 end

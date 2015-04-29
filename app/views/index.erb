@@ -1,17 +1,17 @@
 <div class="container">
-  <h1>Deaf Grandma</h1>
-  <% if @grandma %>
-    <p>Grandma says: "<span id="grandma_says"><%= @grandma %></span>"</p>
+  <h1>Cheering Mascot</h1>
+  <% if @sign_text %>
+    <p>Sign says: "<span id="sign_text"><%= @sign_text %></span>"</p>
   <% end %>
 
   <!-- this form sends data (the <input> elements) to the
        URL '/grandma' using the HTTP verb 'post', which
        matches the 'post /grandma' route defined in
        app/controller/index.rb -->
-  <form action="/grandma" method="post">
-    Say something to Grandma:
+  <form action="/cheers" method="post">
+    Call out a cheer:
     <br>
-    <input type="text" name="user_input">
-    <input type="submit" value="Say it!">
+    <input type="text" name="cheer">
+    <input type="submit" value="Call it out!">
   </form>
 </div>
