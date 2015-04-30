@@ -149,13 +149,16 @@ Unfortunately, the handler doesn't handle the request in the way we want.  We ne
 3. Redirect the browser to the homepage, adding a query string containing the text to display on the sign. When the form is submitted, the browser should ultimately end up at `http://localhost:9393/?sign_text=foobar` where `foobar` is whatever text should appear on the sign. For guidance, read the Sinatra documentation on [browser redirect][].
 
 
-## Resources
+## Conclusion
+We've taken a whirlwind tour of HTTP and Sinatra: how to deal with `GET` and `POST` requests, how to pass data with a `GET` request, how data in a form is sent as part of a `POST` request, how to access data sent with a request through the `params` hash, how to define a Sinatra request handler, etc.  It's a lot to wrap our heads around.  Fortunately, we're going to get a lot of practice working with Sinatra to build web applications, and we'll grow more and more comfortable with all of this material.
+
+Here are some reading and reference materials on Sinatra.
 
 * [Sinatra Online Documentation][Sinatra] (_less-comprehensive but direct_)
 * [Sinatra Book][Sinatra Book] (_more comprehensive, but less direct_)
 
 [Sinatra documentation]: http://www.sinatrarb.com/intro
 [browser redirect]: http://www.sinatrarb.com/intro#Browser%20Redirect
-[handlers section]: http://sinatra-book.zencephalon.com/#handlers
+[handlers section]: http://sinatra-book.zencephalon.com/#toc_17
 [Sinatra Book]: http://sinatra-book.zencephalon.com/
 [Sinatra]: http://www.sinatrarb.com/
