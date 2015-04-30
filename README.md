@@ -90,13 +90,47 @@ The symbol `:index` that were passing corresponds to the name of one of our view
 Back to our block of code.  The call to `#erb` renders our template into a string. As this is the last line of code to execute, the rendered string is what our block will return.  And, the return value of the block becomes the body of the response that our server will send back to the browser.
 
 
-### Release 1: Make Grandma Talk
+### Release 1: Put Words on the Sign
 
-First, visit [http://localhost:9393/?grandma=hey!](http://localhost:9393/?grandma=hey!).  Notice how the value of the URL parameter `grandma` is rendered on the page.  Try to find where in the code this logic exists.  How do we extract information from the URL parameters?
+The sign our mascot is holding needs some words on it.  We want the text of the sign to be dynamic.  Remember, we're going to call out cheers, and our application will determine the appropriate sign.
 
-Note: When you enter a URL in your web browser, it makes an HTTP GET request. Notice how that matches the `get '/'` route defined in `app/controllers/index.rb`?
+We'll begin by looking at how to pass data when making a `GET` request.  We're going to use a [query string](http://en.wikipedia.org/wiki/Query_string).  To put it simply, we're going to add some data to the end of our URL.
 
-Try modifying the value of the `grandma` query parameter. What if you change the query parameter name to `grandpa`?
+```text
+http://somesite.com/?first_name=Ariel&last_name=Cyrillus
+```
+*Figure 5*. Example URL with a query string added.
+
+A query string is offset from the rest of the URL by a `?`.  After the `?` are key-value pairs; pairs are delimited with an `&`.  Each key-value pair is an individual query string parameter.  In the query string in Figure 5, we're passing along data for a first name, Ariel, and a last name, Cyrillus.
+
+![screenshot with text](screenshot-with-text.png)
+
+*Figure 6*. Screenshot of homepage with `sign_text=LOUDER` passed in the query string.
+
+We're going to use the same technique to control the words that appear on our mascot's sign.  We'll add a key-value pair to our query string.  The key needs to be `sign_text`.  Let's give the key the value `LOUDER`.  In the browser, let's visit `http://localhost:9393/?sign_text=LOUDER`.  There should now be text on the sign (see Figure 6).
+
+How did the value from the query string end up on the webpage?  We'll need to take a look at a couple of files:  `app/controllers/index.rb` which we've already seen and `app/views/index.erb`.
+
+In Release 0, we discussed the `GET` handler that we defined for requests made to the root path of our application.  In the block that gets executed when a `GET` request is made to the root path (see Figure 4), we have yet to discuss the line `@sign_text = params[:sign_text]`.
+
+```ruby
+{ :sign_text => "LOUDER" }
+```
+*Figure 7*. Representation of `params` hash.
+
+When HTTP requests are made to our server, the query string parameters are made available.  The key-value pairs are added to a hash assigned to the variable `params`.  In our example, the `params` hash has a key `:sign_text`.  The value of that key is the string `"LOUDER"`.  (See Figure 7)
+
+We have access to the data passed in the query string, but what are we doing with it?  We access the value of the `params` hash's `:sign_text` key (i.e., `"LOUDER"`, and we assign that value to the instance variable `@sign_text`.
+
+```text
+<% if @sign_text %>
+  <span><%= @sign_text %></span>
+<% end %>
+```
+*Figure 8*. Snippet of code from `app/views/index.erb`.
+
+When we assign an instance variable in the block, that instance variable is accessible when we render a template.  In our example we're rendering the template written in `app/views/index.erb` (see Figure 8).  In our template, we insert some Ruby code to say, if the instance variable `@sign_text` is truthy, when rendering the template include the following: `<span><%= @sign_text %></span>`.  Of course, the Ruby snippet `<%= @sign_text %>` will need to be evaluated.  In this example, our rendered template will include `<span>LOUDER</span>`.
+
 
 The string after a URL that looks like `?param1=value1&param2=value2` is called a **query string**, and it contains the parameters of the request.
 
