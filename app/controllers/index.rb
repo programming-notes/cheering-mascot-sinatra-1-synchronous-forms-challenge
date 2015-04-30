@@ -5,5 +5,5 @@ get '/' do
 end
 
 post '/cheers' do
-  "Implement the /cheers route yourself.<br>Params: <code>#{params.inspect}</code>"
+  "We are not handling POST requests to '/cheers' the way we want to.<br>We'll need to fix this.<br><br>Here's a look at the params hash: <code>#{params.inspect}</code>"
 end

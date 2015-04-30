@@ -132,21 +132,22 @@ We have access to the data passed in the query string, but what are we doing wit
 When we assign an instance variable in the block, that instance variable is accessible when we render a template.  In our example we're rendering the template written in `app/views/index.erb` (see Figure 8).  In our template, we insert some Ruby code to say, if the instance variable `@sign_text` is truthy, when rendering the template include the following: `<span><%= @sign_text %></span>`.  Of course, the Ruby snippet `<%= @sign_text %>` will need to be evaluated.  In this example, our rendered template will include `<span>LOUDER</span>`.
 
 
-The string after a URL that looks like `?param1=value1&param2=value2` is called a **query string**, and it contains the parameters of the request.
+### Release 2:  Use the Form to Call out Cheers
 
-Load up the web app, type something into the talk-to-Grandma box, and click "Say it!"  What happens and why?
+Now it's time to call out cheers.  Remember, we want to call out the name of a cheer, and our application will determine which sign the mascot will hold.  
 
-### Release 2:  Make Grandma Logical
+We'll use the form to submit the name of a cheer.  In `app/views/index.erb` we define a form, and we give the form some attributes.  The form has a `method` which is `post` and an `action` which is set to `"/cheers"`.  These attributes combine to determine what happens when the form is submitted.  Submitting this form will tell the browser to make a `POST` request to the path `/cheers`.
 
-Finally, change `app/controllers/index.rb` so that after you send a message to Grandma via the form her reponse is displayed via the `app/views/index.erb` template. Take inspiration from the `get '/'` route.
+When the form is submitted, the data entered in the form is sent along as part of the request.  The input fields and their values are combined to form a line of text formatted like a query string which is added to the request body.  Each `input` element's `name` attribute is used as a key.  The value for each key is whatever was entered into the form.  These key-value pairs are added to the `params` hash and are accessible in our request handlers.
 
-If you typed in something in ALL CAPS make her respond humorously.  If you typed in something else make her response with "Speak up, kiddo!"
+A handler for `POST` requests to the path `/cheers` has been defined for us in `app/controllers/index.rb`.  Enter the name of a cheer into the form, submit the form, and take a look at the response displayed in the browser.
 
-Read the [Sinatra documentation][] on [browser redirect][] and the [handlers section][] of the [Sinatra Book][].  You'll want to redirect back to `http://localhost:9292/?grandma=foobar` (where `foobar` is whatever Grandma has to say) after the user submits their form.
+Unfortunately, the handler doesn't handle the request in the way we want.  We need to rewrite the handler to do the following.
 
-### Submit your code!
+1. Figure out which cheer name was submitted with the form.
+2. Determine which sign the mascot should hold up based on the cheer name.  Remember, this work can be delegated to the `Mascot` module.
+3. Redirect the browser to the homepage, adding a query string containing the text to display on the sign. When the form is submitted, the browser should ultimately end up at `http://localhost:9393/?sign_text=foobar` where `foobar` is whatever text should appear on the sign. For guidance, read the Sinatra documentation on [browser redirect][].
 
-**Only your `index.rb` file should have changed.**  Create a pull request with your changes.
 
 ## Resources
 
