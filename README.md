@@ -41,7 +41,7 @@ We won't be creating a database for this challenge.  However, it's worth noting 
 ### Pre-release: Starting the Server with Shotgun
 In order to use our application, we need to run a server to handle the HTTP requests we'll be generating in the browser.  Take a look at the `Gemfile`.  Notice two of the entries:  [`thin`](https://github.com/macournoyer/thin/) and [`shotgun`](https://github.com/rtomayko/shotgun).  We're not expected to know how these work. Suffice it to say we'll be running a thin server, and we'll start it with shotgun.
 
-Before we try starting the server, let's make sure that all required gems have been installed. Run `bundle` to install any missing gems.  
+Before we try starting the server, let's make sure that all required gems have been installed. Run `bundle` to install any missing gems.
 
 To start the server, run the following command from the application's root directory:
 
@@ -83,9 +83,9 @@ Figure 4.  Defining a Sinatra GET handler.
 
 Our server obviously knew how to handle that request.  Let's take a look at the file `app/controllers/index.rb`.  At the top of the file, we'll see the code that appears in Figure 4, which defines a `GET` handler by calling the method [`Sinatra::Base#get`](https://github.com/sinatra/sinatra/blob/master/lib/sinatra/base.rb#L1368).  We're passing the method a path, which is in this case `"/"` and represents the root URL.  We also pass a block.  All together, we're saying that when a `GET` request is made to this specific path, execute this block of code.
 
-What does the block of code do?  First it assigns an instance variable `@sign_text`.  We'll talk more about this in the next release.  Then, we have the line `erb :index`.  We're calling the method [`Sinatra::Templates#erb`](https://github.com/sinatra/sinatra/blob/master/lib/sinatra/base.rb#L665) and passing the name of a template that we want to render.  
+What does the block of code do?  First it assigns an instance variable `@sign_text`.  We'll talk more about this in the next release.  Then, we have the line `erb :index`.  We're calling the method [`Sinatra::Templates#erb`](https://github.com/sinatra/sinatra/blob/master/lib/sinatra/base.rb#L665) and passing the name of a template that we want to render.
 
-The symbol `:index` that were passing corresponds to the name of one of our view templates:  `app/views/index.erb`.  Our template is written in embedded Ruby.  Essentially, our template is plain text with snippets of Ruby code mixed in.  When the template is rendered, the Ruby expressions get evaluated and their return values replace the snippets.
+The symbol `:index` that we're passing corresponds to the name of one of our view templates:  `app/views/index.erb`.  Our template is written in embedded Ruby.  Essentially, our template is plain text with snippets of Ruby code mixed in.  When the template is rendered, the Ruby expressions get evaluated and their return values replace the snippets.
 
 Back to our block of code.  The call to `#erb` renders our template into a string. As this is the last line of code to execute, the rendered string is what our block will return.  And, the return value of the block becomes the body of the response that our server will send back to the browser.
 
@@ -134,7 +134,7 @@ When we assign an instance variable in the block, that instance variable is acce
 
 ### Release 2:  Use the Form to Call out Cheers
 
-Now it's time to call out cheers.  Remember, we want to call out the name of a cheer, and our application will determine which sign the mascot will hold.  
+Now it's time to call out cheers.  Remember, we want to call out the name of a cheer, and our application will determine which sign the mascot will hold.
 
 We'll use the form to submit the name of a cheer.  In `app/views/index.erb` we define a form, and we give the form some attributes.  The form has a `method` which is `post` and an `action` which is set to `"/cheers"`.  These attributes combine to determine what happens when the form is submitted.  Submitting this form will tell the browser to make a `POST` request to the path `/cheers`.
 
